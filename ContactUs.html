@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> King Vacations- Contact</title>
+		<!--link -->
+		<link rel="icon" href="icon.png">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="description" content="This website is designed to plan all your vacations. 
+										It contains a home, attractions and contact information pages. 
+										Currently on 'Sign up' of website."/>
+		<meta name="author" content= "Philippe Bui">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("h1").mouseover(function(){
+				$("h1").css("font-size", "200%");
+			});
+			$("h1").mouseout(function(){
+				$("h1").css("font-size", "100%");
+			});
+		});
+		</script>
+	</head>
+	
+	<body id= "Sign up">
+		<header>
+			<!--<img alt ="TestPage" height="80" src="C:\Users\Philippe\Documents\school\School\Summer 2016\CS3520\Week 2\icon.png">-->
+			<h1 id="logo">
+				<a href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html">
+				<img alt="King Vacations" height="120" src="icon.png">
+				</a>
+			</h1>
+			<h2>King Vacations</h2>
+			<h3>Your one stop for planning!</h3>
+			
+		</header>
+	
+		<main>
+			
+			<!--<h1>Finder</h1>-->
+				<ul>
+				<!-- Home Page-->
+					<li> <a class="Home Page" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html"> Home</a></li>
+				<!-- Find general information.-->
+					<li> <a class="Attractions" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/Attractions.html"> Attractions</a></li>
+				<!-- Contact Me:-->
+					<li> <a class="Contact Us" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/ContactUs.html"> Contact Us</a></li>
+				</ul>	
+
+			<img alt="pic" height="400" src="kc.png">
+			
+				<h1 class="section">Sign up to be a part of our community to get exclusive invites and offers!! </h1>
+					<p id="signup_form"> 
+						
+							<div>
+
+							<form id="signup" name="signup"  method="post" action="contact.php" >
+							<br>
+								<label for="username">username:</label>
+								<input type="text" name="username" id="username" value='<?php echo $username;?>'><br>
+
+								<label for="password">password:</label>
+								<input type="text" name="password" id="password" value='<?php echo $password;?>'><br>
+								
+								<label for="email">email:</label>
+								<input type="text" name="email" id="email" value='<?php echo $email;?>'><br>
+								
+								<label for="fname">First name:</label>
+								<input type="text" name="fname" id="fname" value='<?php echo $fname;?>'><br>
+								<span class="error"><?php echo $fnameErr;?></span>
+								
+								<label for="lname">Last name:</label>
+								<input type="text" name="lname" id="lname" value='<?php echo $lname;?>'><br>
+								<span class="error"><?php echo $lnameErr;?></span>
+								
+								<label for="address">Address:</label>
+								<input type="text" name="address" id="address" value='<?php echo $address;?>'><br>
+								<span class="error"><?php echo $addressErr;?></span>
+								
+								<label for="city">City:</label>
+								<input type="text" name="city" id="city" value='<?php echo $city;?>'> <br>
+								<span class="error"><?php echo $cityErr;?></span>
+
+								<label for="state">State:</label>
+								<input type="text" name="state" id="state" value="<?php echo $state;?>">
+								<span class="error"><?php echo $stateErr;?></span>
+
+								<label>&nbsp;</label>
+								<input type="submit" name="submit" id="signuplist" value="Submit">
+								
+								<?php
+								session_start();
+									require_once('login.php');
+									
+									$query="INSERT INTO users(username,password, email, fname, lname, address, city, state)
+											VALUES(:username,:password, :email, :fname, :lname, :address, :city, :state)";
+									
+									$dsn= 'mysql:host=localhost;dbnameusers';
+									
+									if(isset($_POST['login']))
+									{
+										$dbn=new PDO($dsn,$username,$password);
+										$username='admin';
+										$password='hello';
+										
+										$checkdb="select * from users WHERE username='$username'AND password='$password'";
+										
+										$stmt->execute($checkdb);
+									}
+									if($stmt)
+									{
+										echo 'Logged in and registered';
+										$_SESSION['email']=$email;
+									}
+									else
+									{
+										echo 'email or password incorrect';
+									}
+
+									
+									session_destroy();
+									?>
+							</form>
+							
+						</div>	
+					</p>
+					
+				
+				<h2 class="section1"> <strong>Have a question?</strong></h2>
+					<p id="question_form">
+						<form>
+						<textarea></textarea>
+						<input type="submit" name="send" id="button" value="Send">
+						</form>
+							<br></br>
+						
+				
+		</main>
+		
+		<footer>
+			<p> Created by: Philippe Bui, CS 3520 </p>
+		</footer>
+		
+	</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> King Vacations</title>
+		<!--link -->
+		<link rel="icon" href="icon.png">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="description" content="This website is designed to plan all your vacations. 
+										It contains a home, attractions and contact information pages. 
+										Currently on 'Home Page' of website."/>
+		<meta name="author" content= "Philippe Bui">
+
+	</head>
+	
+	<body id= "Home page">
+		<header>
+			<h1 id="logo">
+				<a href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html">
+				<img alt="King Vacations" height="120" src="icon.png">
+				</a>
+			</h1>
+			<h2>King Vacations</h2>
+			<h3>Your one stop for planning!</h3>
+		</header>
+	
+		<main>
+			
+			<!--<h1>Finder</h1>-->
+				<ul>
+				<!-- Home Page-->
+					<li> <a class="Home Page" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html"> Home</a></li>
+				<!-- Find general information.-->
+					<li> <a class="Attractions" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/Attractions.html"> Attractions</a></li>
+				<!-- Contact Me:-->
+					<li> <a class="Contact Us" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/ContactUs.html"> Contact Us</a></li>
+				</ul>
+			
+			
+			<img alt="pic" height="400" src="kc.png">
+			
+				<h1 class="section">Your vacation awaits! </h1>
+					<p id="p1"> 
+					Plan a trip to your desired location! 
+					<hr>
+					Here are some suggestions that might help you decide where you would like to go!
+					</p>	
+					
+					<!--Accordion-->
+					<button class="accordion">Explore Nature?</button>
+					<div class="panel">
+					  <p>
+					   Yosemite!<br>
+					   Yellow Stone!<br>
+					   Muir Woods!<br>
+					   Lake Tahoe!<br>
+					  </p>
+					</div>
+
+					<button class="accordion">The Beach?</button>
+					<div class="panel">
+					  <p>
+					  Santa Crus!<br>
+					  Half Moon Bay!<br>
+					  Santa Monica!<br>
+					  Laguna Beach!<br>
+					  </p>
+					</div>
+
+					<button class="accordion">Theme Parks?</button>
+					<div id="ac" class="panel">
+					  <p>
+					  Disney Land!<br>
+					  Universal Studios!<br>
+					  Six Flags!<br>
+					  Water World!<br>
+					  </p>
+					</div>
+
+					<script>
+						var acc = document.getElementsByClassName("accordion");
+						var i;
+
+						for (i = 0; i < acc.length; i++) {
+							acc[i].onclick = function(){
+								this.classList.toggle("active");
+								this.nextElementSibling.classList.toggle("show");
+						  }
+						}
+					</script>
+
+					
+		</main>
+			
+			
+		<footer>
+			<p> Created by: Philippe Bui, CS 3520 </p>
+		</footer>
+		
+	</body>
+</html>

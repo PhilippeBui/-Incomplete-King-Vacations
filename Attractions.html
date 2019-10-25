@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> King Vacations- Search</title>
+		<!--link -->
+		<link rel="icon" href="icon.png">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="description" content="This website is designed to plan all your vacations. 
+										It contains a home, attractions and contact information pages.
+										Currently on 'Attractions Page' of website."/>
+		<meta name="author" content= "Philippe Bui">
+		
+		<script>
+			var price= new Array();
+			price["yos"]=60;
+			price["dis"]=90;
+			price["bea"]=0;
+			
+			function getPrice()
+			{
+				var tp=0;
+				var totalForm =document.forms["OptForm"];
+				
+				var select =totalForm.elements["select"];
+				
+				for(var i=0; i<select.length; i++)
+				{
+					if(select[i].checked)
+					{
+						tp=price[select[i].value];
+						break;
+					}
+				}
+				return tp;
+			}
+			
+			function totalP()
+			{
+				var tp=getPrice();
+				
+				document.getElementById('total').innerHTML="total is: $"+tp;
+			}
+		</script>
+		
+	</head>
+	
+	<body id= "Attractions">
+		<header>
+			<!--<img alt ="TestPage" height="80" src="C:\Users\Philippe\Documents\school\School\Summer 2016\CS3520\Week 2\icon.png">-->
+			<h1 id="logo">
+				<a href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html">
+				<img alt="King Vacations" height="120" src="icon.png">
+				</a>
+			</h1>
+			<h2>King Vacations</h2>
+			<h3>Your one stop for planning!</h3>
+		</header>
+	
+<main>
+			
+			<!--<h1>Finder</h1>-->
+				<ul>
+				<!-- Home Page-->
+					<li> <a class="Home Page" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/HomePage.html"> Home</a></li>
+				<!-- Find general information.-->
+					<li> <a class="Attractions" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/Attractions.html"> Attractions</a></li>
+				<!-- Contact Me:-->
+					<li> <a class="Contact Us" href="file:///C:/Users/Philippe/Documents/school/School/Summer%202016/CS3520-web/Week%209/ContactUs.html"> Contact Us</a></li>
+				</ul>			
+			
+			<img alt="pic" height="400" src="kc.png">
+			
+				<h1 class="section">Search for things to do! </h1>
+					<p id="search_form"> 
+							<a class="General Search" href="https://www.google.com"> Search on Google</a>
+								<br>
+							<a class="Food Search" href="https://www.yelp.com"> Search on Yelp</a>
+								<br>
+							<input type="button" id="serverfile" onclick="text.php" value="server file">
+							<br>
+					</p>	
+					
+					
+					<form action="" id="OptForm" onsubmit="return false;">
+					   <fieldset>
+						<label >Price Calculator!</label>
+						<input type="radio"  name="select" value="yos"
+						onclick="totalP()" />
+						Yosemite
+						<input type="radio"  name="select" value="dis"
+						onclick="totalP()" />
+						Disney Land
+						<input type="radio"  name="select" value="bea"
+						onclick="totalP()" />
+						Half Moon Bay
+					
+							<div id="total"></div>
+						</fieldset>
+					</form>
+					
+					
+					<!--test form
+					<form id="OptForm" name="OptForm" action="" method="get">
+								<input type="radio" id="yos" name="yos" value="60">
+								:Yosemite
+								<br>
+								<input type="radio" id="dis" name="dis" value="90">
+								:Disney Land
+								<br>
+								<input type="radio" id="bea" name="bea" value="0"  >
+								:Half Moon Bay
+								<br>
+								<input type="submit" value="Submit" onclick="price()">
+								
+								<p id="result"></p>
+							</form>
+				-->
+		</main>
+			
+		<footer>
+			<p> Created by: Philippe Bui, CS 3520 </p>
+		</footer>
+		
+	</body>
+</html>
